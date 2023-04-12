@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const helmet = require("helmet");
 const http = require("http");
 const port = process.env.PORT || "9000";
 const app = express();
@@ -20,6 +21,7 @@ const testcol = db.collection("testcol");
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
+app.use(helmet());
 
 // ROUTES
 app.get("/text-api", (req, res) => {
